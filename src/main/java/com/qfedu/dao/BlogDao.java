@@ -8,10 +8,11 @@ import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Repository;
 
+@Repository
 public interface BlogDao {
 
 	//添加博文
-	@Insert("insert into t_blog(name) values(#{name})")
+	@Insert("insert into t_blog(title,keyword,content) values(#{title},#{keyword},#{content})")
 	public void addBlog(Blog blog);
 	
 	//分页查询

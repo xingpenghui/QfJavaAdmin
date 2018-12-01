@@ -11,13 +11,14 @@ import javax.annotation.Resource;
 
 import com.qfedu.dao.BlogDao;
 import com.qfedu.pojo.Blog;
+import com.qfedu.service.BlogService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 
 @Service
-public class BlogServiceImpl {
+public class BlogServiceImpl implements BlogService{
 
 	@Autowired(required = false)
 	private BlogDao blogDao;
