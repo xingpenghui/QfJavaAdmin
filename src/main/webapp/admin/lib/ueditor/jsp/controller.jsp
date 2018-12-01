@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	import="com.baidu.ueditor.ActionEnter"
     pageEncoding="UTF-8"%>
+<%@ page import="com.qfedu.common.UeditorActionEnter" %>
 <%@ page trimDirectiveWhitespaces="true" %>
 <%
 
@@ -8,7 +8,7 @@
 	response.setHeader("Content-Type" , "text/html");
 	
 	String rootPath = application.getRealPath( "/" );
-	System.out.println(rootPath);
-	out.write( new ActionEnter( request, rootPath ).exec() );
+	//System.out.println(rootPath);
+	out.write( new UeditorActionEnter( request, rootPath ).exec() );
 	
 %>
