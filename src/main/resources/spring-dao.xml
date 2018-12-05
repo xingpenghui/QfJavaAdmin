@@ -61,6 +61,20 @@
 		class="org.mybatis.spring.SqlSessionFactoryBean">
 		<!--设置数据库连接池 -->
 		<property name="dataSource" ref="dataSource"></property>
+		<property name="typeAliasesPackage" value="com.qfedu.pojo" />
+		<property name="plugins">
+			<array>
+				<bean class="com.github.pagehelper.PageInterceptor">
+					<property name="properties">
+						<value>
+							helperDialect=mysql
+							reasonable=true
+						</value>
+					</property>
+				</bean>
+			</array>
+		</property>
+		<property name="mapperLocations" value="classpath:com/qfedu/mapper/*.xml"></property>
 	</bean>
 	<!--4、设置Mybatis的映射文件的信息 -->
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
