@@ -5,18 +5,20 @@ public class Blog {
 	private Integer bid;
 	private User user;
 	private String title;
-	private Integer typeId;
+	private BlogType blogType;
 	private String createTime;
 	private String status;
 	private String keyword;
 	private String summary;
+	private String content;
+	private String url;
 
-	public Integer getTypeId() {
-		return typeId;
+	public BlogType getBlogType() {
+		return blogType;
 	}
 
-	public void setTypeId(Integer typeId) {
-		this.typeId = typeId;
+	public void setBlogType(BlogType type) {
+		this.blogType = type;
 	}
 
 	public String getSummary() {
@@ -43,11 +45,6 @@ public class Blog {
 		this.url = url;
 	}
 
-	private String content;
-	private String url;
-
-	
-	
 	public String getKeyword() {
 		return keyword;
 	}

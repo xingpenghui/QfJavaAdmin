@@ -19,10 +19,15 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class BlogServiceImpl implements BlogService{
-
 	@Autowired(required = false)
 	private BlogDao blogDao;
-	
+
+	@Override
+	public List<Blog> findAllBlog() {
+		List<Blog> list = blogDao.findAll();
+		return list;
+	}
+
 	
 	//添加博文
 	public void addBlogService(Blog blog) {

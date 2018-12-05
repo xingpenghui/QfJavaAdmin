@@ -1,5 +1,7 @@
 package com.qfedu.web;
 
+import com.github.pagehelper.Page;
+import com.github.pagehelper.PageHelper;
 import com.qfedu.pojo.Blog;
 import com.qfedu.service.BlogService;
 import com.qfedu.vo.JsonBean;
@@ -10,6 +12,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 @Controller
 public class BlogController {
@@ -31,5 +36,20 @@ public class BlogController {
             bean.setMsg(e.getMessage());
         }
         return bean;
+    }
+
+    @RequestMapping(value="/blog", method= RequestMethod.GET)
+    @ResponseBody
+    public Map<String, Object> list(Integer offset, Integer limit) {
+
+//        PageHelper.startPage(page, limit);//页码
+        Page<Object> page = PageHelper.offsetPage(offset, limit);// 开始索引
+        List<Blog> list = blogService.findAllBlog();
+
+        Map<String, Object> map = new HashMap<>();
+        map.put("total", page.getTotal());
+        map.put("rows", list);
+
+        return map;
     }
 }

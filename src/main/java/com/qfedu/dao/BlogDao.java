@@ -14,7 +14,11 @@ public interface BlogDao {
 	//添加博文
 	@Insert("insert into t_blog(title,keyword,content) values(#{title},#{keyword},#{content})")
 	public void addBlog(Blog blog);
-	
+
+
+	//@Select("select * from t_blog")
+	public List<Blog> findAll();
+
 	//分页查询
 	@Select("select * from t_blog")
 	public List<Blog> findByPage(Map<String, Object> map);
