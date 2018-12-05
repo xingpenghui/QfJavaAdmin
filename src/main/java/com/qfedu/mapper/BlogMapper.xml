@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 映射文件 针对数据库通过sql语句进行操作
+namespace 命名空间
+命名成包名+类名（接口名）的形式
+
+命名空间使用数据访问层接口的全路径
+ -->
+<mapper namespace="com.qfedu.dao.BlogDao">
+		
+	<resultMap type="blog" id="blogMapper">
+
+		<id property="id" column="id" />
+		<result property="title" column="title"/>
+		<result property="createTime" column="createtime"/>
+		<result property="keyword" column="keyword"/>
+		<result property="status" column="status"/>
+		<result property="content" column="content"/>
+		
+		<association property="blogType" javaType="blogType">
+			<id property="tid" column="tid"></id>
+			<result property="tname" column="tname"></result>
+		</association>
+
+	</resultMap>
+	
+	<select id="findAll" resultMap="blogMapper">
+		select * from t_blog b
+		left join t_blogtype bt
+		on b.typeid=bt.tid
+	</select>
+		
+</mapper>
+
+
+
+
+
+
