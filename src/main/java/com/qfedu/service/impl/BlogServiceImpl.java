@@ -12,6 +12,8 @@ import javax.annotation.Resource;
 import com.qfedu.dao.BlogDao;
 import com.qfedu.pojo.Blog;
 import com.qfedu.service.BlogService;
+import com.qianfeng.utils.StrUtils;
+import com.qianfeng.utils.UEditorImgUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
@@ -32,7 +34,7 @@ public class BlogServiceImpl implements BlogService{
 	//添加博文
 	public void addBlogService(Blog blog) {
 		
-		if (blog == null || blog.equals("")) {
+		if (blog == null || blog.getContent().equals("")) {
 			throw new RuntimeException("发表博文出现异常");
 		}
 		
@@ -42,9 +44,18 @@ public class BlogServiceImpl implements BlogService{
 			String time = format.format(data);
 			
 			blog.setCreateTime(time);
-			blog.setStatus("审核中");
-			
+			//blog.setStatus("审核中");
+
+			// 获取图片路径
+			List<String> list = UEditorImgUtils.getImageSrc(blog.getContent());
+			if(list != null && list.size() > 0) {
+				String s = StrUtils.listToString(list, ',');
+				blog.setImgPaths(s);
+			}
+
 			blogDao.addBlog(blog);
+
+
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

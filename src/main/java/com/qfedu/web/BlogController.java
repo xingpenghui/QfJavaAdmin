@@ -3,10 +3,12 @@ package com.qfedu.web;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import com.qfedu.pojo.Blog;
+import com.qfedu.pojo.BlogType;
 import com.qfedu.service.BlogService;
 import com.qfedu.vo.JsonBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -25,10 +27,11 @@ public class BlogController {
 
     @RequestMapping(value="/blog", method= RequestMethod.POST)
     @ResponseBody
-    public JsonBean addBlogController(Blog blog) {
+    public JsonBean addBlogController(Blog blog, BlogType type) {
 
         JsonBean bean = new JsonBean();
         try {
+            blog.setBlogType(type);
             blogService.addBlogService(blog);
             bean.setCode(1);
         }catch (Exception e){

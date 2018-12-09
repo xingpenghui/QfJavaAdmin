@@ -132,12 +132,12 @@
                 <ul class="category-list">
                   <li>
                     <label>
-                      <input name="typeId" type="radio" value="1" checked>
+                      <input name="tid" type="radio" value="1" checked>
                       资源 <em class="hidden-md">( 栏目ID: <span>1</span> )</em></label>
                   </li>
                   <li>
                     <label>
-                      <input name="typeId" type="radio" value="2">
+                      <input name="tid" type="radio" value="2">
                       教程 <em class="hidden-md">( 栏目ID: <span>2</span> )</em></label>
                   </li>
 
@@ -362,6 +362,7 @@ function upFiles() {
 
 <script>
 $("#blogForm").submit(function(){
+    //alert(JSON.stringify($(this).serializeArray()))
     $.ajax({
         type:"post",
         url:"/blogs/blog",

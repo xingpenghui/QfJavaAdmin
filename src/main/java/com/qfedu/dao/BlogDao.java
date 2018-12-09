@@ -12,7 +12,7 @@ import org.springframework.stereotype.Repository;
 public interface BlogDao {
 
 	//添加博文
-	@Insert("insert into t_blog(title,keyword,content) values(#{title},#{keyword},#{content})")
+	@Insert("insert into t_blog(title,typeid,createtime,keyword,content,imgPaths) values(#{title},#{blogType.tid},#{createTime},#{keyword},#{content},#{imgPaths})")
 	public void addBlog(Blog blog);
 
 

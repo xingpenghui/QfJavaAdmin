@@ -12,6 +12,15 @@ public class Blog {
 	private String summary;
 	private String content;
 	private String url;
+	private String imgPaths;
+
+	public String getImgPaths() {
+		return imgPaths;
+	}
+
+	public void setImgPaths(String imgPaths) {
+		this.imgPaths = imgPaths;
+	}
 
 	public BlogType getBlogType() {
 		return blogType;
