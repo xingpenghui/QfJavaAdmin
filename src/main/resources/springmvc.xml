@@ -17,7 +17,6 @@
 	<context:component-scan
 		base-package="com.qfedu.web"></context:component-scan>
 
-	
 	<mvc:annotation-driven  conversion-service="conversionService">
 		<!--设置消息解析器 -->
 		<mvc:message-converters>

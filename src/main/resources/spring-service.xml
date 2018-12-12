@@ -45,4 +45,10 @@
 	</aop:config>
 
 
+	<bean id="freemarkerConfig"
+		  class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">
+		<property name="templateLoaderPath" value="classpath:/ftl/"/>
+		<property name="defaultEncoding" value="UTF-8"/>
+	</bean>
+
 </beans>
