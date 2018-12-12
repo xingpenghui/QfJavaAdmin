@@ -9,20 +9,26 @@ import java.util.Map;
 
 import javax.annotation.Resource;
 
+import com.qfedu.common.CfgInfo;
 import com.qfedu.dao.BlogDao;
 import com.qfedu.pojo.Blog;
 import com.qfedu.service.BlogService;
+import com.qianfeng.utils.GenHtmlUtils;
 import com.qianfeng.utils.StrUtils;
 import com.qianfeng.utils.UEditorImgUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
+import org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer;
 
 
 @Service
 public class BlogServiceImpl implements BlogService{
 	@Autowired(required = false)
 	private BlogDao blogDao;
+
+	@Autowired
+	private FreeMarkerConfigurer freeMarkerConfigurer;
 
 	@Override
 	public List<Blog> findAllBlog() {
@@ -51,6 +57,19 @@ public class BlogServiceImpl implements BlogService{
 			if(list != null && list.size() > 0) {
 				String s = StrUtils.listToString(list, ',');
 				blog.setImgPaths(s);
+			}
+
+			String ftlPath = "blogdetail.ftl";
+			// 生成静态文件的文件名
+			String file = StrUtils.htmlName();
+			// 设置存放的路径
+			String desc = CfgInfo.getRootInfo() + "/" + file;
+			// 生成静态文件
+			boolean ret = GenHtmlUtils.genHtml(ftlPath, desc, blog, freeMarkerConfigurer);
+			if(ret){
+				blog.setUrl(file);
+			}else{
+				blog.setUrl("");
 			}
 
 			blogDao.addBlog(blog);
