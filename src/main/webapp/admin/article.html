@@ -339,7 +339,7 @@ $(function(){
     function actionFormatter(value, row, index) {
         var id = value;
         var result = "";
-        result += "<a href='javascript:;' class='btn btn-xs green' onclick=\"EditViewById('" + id + "', view='view')\" title='查看'><span class='glyphicon glyphicon-search'></span></a>";
+        result += "<a href='http://localhost:8080/upload" + row.url + "' class='btn btn-xs green' title='查看'><span class='glyphicon glyphicon-search'></span></a>";
         result += "<a href='javascript:;' class='btn btn-xs blue' onclick=\"EditViewById('" + id + "')\" title='编辑'><span class='glyphicon glyphicon-pencil'></span></a>";
         result += "<a href='javascript:;' class='btn btn-xs red' onclick=\"DeleteByIds('" + id + "')\" title='删除'><span class='glyphicon glyphicon-remove'></span></a>";
 
@@ -380,7 +380,11 @@ $(function(){
                 title: '日期',
 
             },{
-            field: 'id',
+                field: 'url',
+                title: 'path',
+                visible:false // 隐藏列
+            },{
+            field: 'bid',
             title: '操作',
                 width: 120,
                 align: 'center',
