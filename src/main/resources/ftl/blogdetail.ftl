@@ -85,68 +85,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="empty-space h20-xs"></div>
-                <div class="row">
-                    <div class="col-md-10 col-md-offset-1">
-                        <div class="container-fluid-inner">
-                            <div class="swiper-with-img">
-                                <div class="swipers-img"><img src="${hostInfo}/img/blog-img-6-2.jpg" alt=""></div>
-                                <div class="swiper-container" data-speed="1000" data-breakpoints="1"  data-space="10" data-slides-per-view="4" data-xs-slides="2" data-sm-slides="4" data-md-slides="4" data-lg-slides="4">
-                                    <div class="swiper-wrapper">
-                                        <div class="swiper-slide" data-img-src="${hostInfo}/img/blog-img-6-2.jpg">
-                                            <img src="${hostInfo}/img/blog-img-6.jpg" alt="">
-                                        </div>
-                                        <div class="swiper-slide" data-img-src="${hostInfo}/img/blog-img-7-2.jpg">
-                                            <img src="${hostInfo}/img/blog-img-7.jpg" alt="">
-                                        </div>
-                                        <div class="swiper-slide" data-img-src="${hostInfo}/img/blog-img-8-2.jpg">
-                                            <img src="${hostInfo}/img/blog-img-8.jpg" alt="">
-                                        </div>
-                                        <div class="swiper-slide" data-img-src="${hostInfo}/img/blog-img-9-2.jpg">
-                                            <img src="${hostInfo}/img/blog-img-9.jpg" alt="">
-                                        </div>
-                                        <div class="swiper-slide" data-img-src="${hostInfo}/img/blog-img-6-2.jpg">
-                                            <img src="${hostInfo}/img/blog-img-6.jpg" alt="">
-                                        </div>
-                                        <div class="swiper-slide" data-img-src="${hostInfo}/img/blog-img-7-2.jpg">
-                                            <img src="${hostInfo}/img/blog-img-7.jpg" alt="">
-                                        </div>
-                                    </div>
-                                    <div class="swiper-pagination"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="empty-space h40-xs"></div>
-                <div class="row">
-                    <div class="col-md-10 col-md-offset-1">
-                        <div class="section">
-                            <p class="text-left">
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="empty-space h20-xs"></div>
-                <div class="row">
-                    <div class="col-md-10 col-md-offset-1">
-                        <div class="container-fluid-inner">
-                            <div class="video-wrapper">
-                                <img class="block" src="${hostInfo}/img/blog-img-10.jpg" alt="">
-                                <div class="button-play open-video" data-src="https://www.youtube.com/embed/kQT2y3UiosQ?autoplay=1&amp;loop=1&amp;modestbranding=1&amp;rel=0&amp;showinfo=0&amp;color=white&amp;theme=light&amp;wmode=transparent"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="empty-space h40-xs"></div>
-                <div class="row">
-                    <div class="col-md-10 col-md-offset-1">
-                        <div class="section">
-                            <p class="text-left">
-                            </p>
-                        </div>
-                    </div>
-                </div>
+
                 <div class="empty-space h40-xs"></div>
                 <div class="row">
                     <div class="col-md-10 col-md-offset-1">
