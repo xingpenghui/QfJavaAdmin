@@ -1,5 +1,6 @@
 package com.qfedu.service.impl;
 
+import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -63,11 +64,17 @@ public class BlogServiceImpl implements BlogService{
 			// 生成静态文件的文件名
 			String file = StrUtils.htmlName();
 			// 设置存放的路径
-			String desc = CfgInfo.getRootInfo() + "/" + file;
+			String relativePath =  "/html/" + StrUtils.datePath();
+			String path = CfgInfo.getRootInfo() + relativePath;
+			File p = new File(path);
+			if(!p.exists()){
+				p.mkdirs();
+			}
+			String desc = path + "/" + file;
 			// 生成静态文件
 			boolean ret = GenHtmlUtils.genHtml(ftlPath, desc, blog, freeMarkerConfigurer);
 			if(ret){
-				blog.setUrl(file);
+				blog.setUrl(relativePath + "/" + file);
 			}else{
 				blog.setUrl("");
 			}

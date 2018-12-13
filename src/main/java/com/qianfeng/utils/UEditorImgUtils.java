@@ -22,6 +22,11 @@ public class UEditorImgUtils {
         while (m.find()) {
             quote = m.group(1);
             src = (quote == null || quote.trim().length() == 0) ? m.group(2).split("\\s+")[0] : m.group(2);
+            // 将站点的url去除
+            if(src.contains("http")){
+                src = src.substring(src.indexOf("//") + 2);
+                src = src.substring(src.indexOf("/"));
+            }
             imageSrcList.add(src);
         }
         return imageSrcList;
